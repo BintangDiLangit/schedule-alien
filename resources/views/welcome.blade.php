@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
     <meta charset="UTF-8">
@@ -9,73 +9,76 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+    <style>
+        body {
+            background-color: #eee
+        }
+
+        .card {
+            border: none;
+            border-radius: 10px
+        }
+
+        .c-details span {
+            font-weight: 300;
+            font-size: 13px
+        }
+
+        .icon {
+            width: 50px;
+            height: 50px;
+            background-color: #eee;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 39px
+        }
+
+        .badge span {
+            background-color: #fffbec;
+            width: 60px;
+            height: 25px;
+            padding-bottom: 3px;
+            border-radius: 5px;
+            display: flex;
+            color: #fed85d;
+            justify-content: center;
+            align-items: center
+        }
+
+        .progress {
+            height: 10px;
+            border-radius: 10px
+        }
+
+        .progress div {
+            background-color: red
+        }
+
+        .text1 {
+            font-size: 14px;
+            font-weight: 600
+        }
+
+        .text2 {
+            color: #a5aec0
+        }
+
+    </style>
 </head>
-<style>
-    body {
-        background-color: #eee
-    }
-
-    .card {
-        border: none;
-        border-radius: 10px
-    }
-
-    .c-details span {
-        font-weight: 300;
-        font-size: 13px
-    }
-
-    .icon {
-        width: 50px;
-        height: 50px;
-        background-color: #eee;
-        border-radius: 15px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 39px
-    }
-
-    .badge span {
-        background-color: #fffbec;
-        width: 60px;
-        height: 25px;
-        padding-bottom: 3px;
-        border-radius: 5px;
-        display: flex;
-        color: #fed85d;
-        justify-content: center;
-        align-items: center
-    }
-
-    .progress {
-        height: 10px;
-        border-radius: 10px
-    }
-
-    .progress div {
-        background-color: red
-    }
-
-    .text1 {
-        font-size: 14px;
-        font-weight: 600
-    }
-
-    .text2 {
-        color: #a5aec0
-    }
-
-</style>
 
 <body>
-
 
     <div class="container mt-5 mb-3">
         <h1 class="text-center mb-3">Schedule Alien | Semester 5</h1>
         <div class="row">
+            <form action="{{ route('welcome') }}" method="GET">
+                <input type="text" name="search" class="form-control mb-5" id="myInput" placeholder="Search">
+            </form>
+
             @foreach ($sch as $sch)
-                <div class="col-md-4">
+                <div class="col-md-4" id="myDiv">
                     <div class="card p-3 mb-2">
                         <div class="d-flex justify-content-between">
                             <div class="d-flex flex-row align-items-center">
@@ -97,6 +100,7 @@
 
         </div>
     </div>
+
 </body>
 
 </html>

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ScheduleController;
+use App\Http\Controllers\SearchController;
 use App\Http\Controllers\WelcomeController;
 use Illuminate\Support\Facades\Route;
 
@@ -22,4 +23,4 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 })->name('dashboard');
 
 
-Route::resource('admin/schedule',ScheduleController::class)->middleware('auth');
+Route::resource('admin/schedule', ScheduleController::class)->middleware('auth');

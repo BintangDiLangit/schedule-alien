@@ -9,7 +9,15 @@ class WelcomeController extends Controller
 {
     public function index()
     {
-        $sch = Schedule::orderBy('created_at', 'desc')->get();
+
+        $search = request()->query('search');
+        if ($search) {
+            $sch = Schedule::where('namaMatkul', 'LIKE', '%' . $search . '%')
+                ->orWhere('dosen', 'LIKE', '%' . $search . '%')
+                ->orWhere('kelas', 'LIKE', '%' . $search . '%')->get();
+        } else {
+            $sch = Schedule::orderBy('created_at', 'desc')->get();
+        }
         return view('welcome', compact('sch'));
     }
 }
